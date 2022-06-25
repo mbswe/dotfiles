@@ -13,6 +13,10 @@ bindsym $mod+Mod1+1 exec ~/.scripts/set_resolution_laptop_only
 bindsym $mod+Mod1+2 exec ~/.scripts/set_resolution_dual_screen
 bindsym $mod+Mod1+3 exec ~/.scripts/set_resolution_rdp_4k
 
+# rofi launcher
+bindsym $mod+Mod1+r exec --no-startup-id rofi -show run
+bindsym $mod+Mod1+s exec --no-startup-id rofi -show ssh
+
 # Set defailt screen resolution for laptop only
 exec ~/.scripts/set_resolution_laptop_only
 
@@ -389,7 +393,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 5
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
