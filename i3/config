@@ -4,9 +4,11 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+
+
 ### Magnus custom
 # Custom lockscreen
-bindsym $mod+x exec ~/.scripts/lock_screen
+bindsym $mod+Shift+x exec ~/.scripts/lock_screen
 
 # Set screen resolutions
 bindsym $mod+Mod1+1 exec ~/.scripts/set_resolution_laptop_only
@@ -17,11 +19,29 @@ bindsym $mod+Mod1+3 exec ~/.scripts/set_resolution_rdp_4k
 bindsym $mod+Mod1+r exec --no-startup-id rofi -show run
 bindsym $mod+Mod1+s exec --no-startup-id rofi -show ssh
 
+# Move entire workspace left or right
+bindsym $mod+Mod1+Left move workspace to output left
+bindsym $mod+Mod1+Right move workspace to output right
+
 # Set defailt screen resolution for laptop only
 exec ~/.scripts/set_resolution_laptop_only
 
 # Prevent screensaver on specific apps. (Tray icon)
 exec caffeine
+
+set $mode_display Display arrangement - Laptop only (1) - Laptop + external 4K (2)
+
+mode "$mode_display" {
+    bindsym 1 exec --no-startup-id xrandr --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off && feh --randomize --bg-fill ~/.wallpapers/*, mode "default"
+    bindsym 2 exec --no-startup-id xrandr --output eDP-1 --mode 2560x1440 --pos 0x720 --rotate normal --output DP-1 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output DP-2 --off --output DP-3 --off && feh --randomize --bg-fill ~/.wallpapers/*
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+x mode "$mode_display"
+
+
 
 
 
@@ -54,7 +74,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
