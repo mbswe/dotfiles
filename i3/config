@@ -23,7 +23,14 @@ bindsym $mod+Mod1+s exec --no-startup-id rofi -show ssh
 bindsym $mod+Mod1+Left move workspace to output left
 bindsym $mod+Mod1+Right move workspace to output right
 
-# Set defailt screen resolution for laptop only
+# Spotifycontrol
+bindsym $mod+Ctrl+space exec playerctl --player spotify play-pause
+bindsym $mod+Ctrl+d exec playerctl --player spotify next
+bindsym $mod+Ctrl+a exec playerctl --player spotify previous
+bindsym $mod+Ctrl+Shift+a exec playerctl --player spotify position 5-
+bindsym $mod+Ctrl+Shift+d exec playerctl --player spotify position 5+
+
+# Set default screen resolution for laptop only
 exec ~/.scripts/set_resolution_laptop_only
 
 # Prevent screensaver on specific apps. (Tray icon)
@@ -328,7 +335,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+#########exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec --no-startup-id xautolock -time 5 -locker ~/.scripts/lock_screen
