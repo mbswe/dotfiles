@@ -15,3 +15,8 @@ ln -s $CWD/i3/config /home/$USER/.i3/config
 mkdir -p /home/$USER/.config/i3status
 rm -f /home/$USER/.config/i3status/i3status.conf
 ln -s $CWD/i3status/i3status.conf /home/$USER/.config/i3status/config
+
+#alacritty
+mkdir -p /home/$USER/.config/alacritty
+rm -f /home/$USER/.config/alacritty/alacritty.yml
+ln -s $CWD/alacritty/alacritty.yml /home/$USER/.config/alacritty/alacritty.yml
