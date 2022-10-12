@@ -64,5 +64,6 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd VimEnter * NERDTree
 
 colorscheme gruvbox
